@@ -1,0 +1,12 @@
+PODS:
+  - MarkelyticsSurvey (1.0.0)
+
+DEPENDENCIES:
+  - MarkelyticsSurvey (= 1.0.0)
+
+SPEC CHECKSUMS:
+  MarkelyticsSurvey: 1766998bf68ec246416fd18a942ebc5a6fec6aba
+
+PODFILE CHECKSUM: dba03254cdcdb1f56ecb1778a630f6608df4a7fc
+
+COCOAPODS: 1.2.1
