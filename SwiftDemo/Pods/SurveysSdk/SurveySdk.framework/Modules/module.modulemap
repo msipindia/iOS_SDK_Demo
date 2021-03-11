@@ -1,0 +1,11 @@
+framework module SurveySdk {
+  umbrella header "SurveySdk.h"
+
+  export *
+  module * { export * }
+}
+
+module SurveySdk.Swift {
+    header "SurveySdk-Swift.h"
+    requires objc
+}

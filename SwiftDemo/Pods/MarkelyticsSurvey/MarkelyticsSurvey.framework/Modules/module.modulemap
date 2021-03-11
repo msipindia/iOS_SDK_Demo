@@ -1,6 +1,0 @@
-framework module MarkelyticsSurvey {
-  umbrella header "MarkelyticsSurvey.h"
-
-  export *
-  module * { export * }
-}

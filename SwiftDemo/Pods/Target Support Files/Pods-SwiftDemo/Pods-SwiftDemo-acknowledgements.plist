@@ -14,15 +14,11 @@
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>  Copyright (C) Markelytics Solutions Ltd. - All Rights Reserved
-  Unauthorized copying of this software, via any medium is strictly prohibited
-  Proprietary and confidential
-
-</string>
+			<string>Intended to used by registered developer only</string>
 			<key>License</key>
-			<string>Proprietary</string>
+			<string>Commercial</string>
 			<key>Title</key>
-			<string>MarkelyticsSurvey</string>
+			<string>SurveysSdk</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

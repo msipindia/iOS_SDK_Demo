@@ -1,0 +1,95 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name SurveySdk
+import Foundation
+@_exported import SurveySdk
+import Swift
+import SystemConfiguration
+import UIKit
+import WebKit
+public struct Survey : Swift.Codable {
+  public var surveyID: Swift.Int?
+  public var isRegister: Swift.Int?
+  public var payload: SurveySdk.Payload?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct ConsentIntroHeader : Swift.Codable {
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct Payload : Swift.Codable {
+  public var loi: Swift.Int
+  public var category: Swift.String
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @_inheritsConvenienceInitializers @IBDesignable open class SurveyView : UIKit.UIView {
+  public var delegate: SurveySdk.SurveyViewDelegate?
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc override dynamic open func didMoveToWindow()
+  public func loadSurvey(with surveyID: Swift.Int)
+  @objc deinit
+}
+extension SurveyView : WebKit.WKNavigationDelegate, WebKit.WKUIDelegate {
+  @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  @objc dynamic public func webView(_ webView: WebKit.WKWebView, didStartProvisionalNavigation navigation: WebKit.WKNavigation!)
+  @objc dynamic public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: (WebKit.WKNavigationActionPolicy) -> Swift.Void)
+  @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFail navigation: WebKit.WKNavigation!, withError error: Swift.Error)
+  @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFailProvisionalNavigation navigation: WebKit.WKNavigation!, withError error: Swift.Error)
+  @objc dynamic public func webView(_ webView: WebKit.WKWebView, runJavaScriptAlertPanelWithMessage message: Swift.String, initiatedByFrame frame: WebKit.WKFrameInfo, completionHandler: @escaping () -> Swift.Void)
+  @objc dynamic public func webView(_ webView: WebKit.WKWebView, runJavaScriptConfirmPanelWithMessage message: Swift.String, initiatedByFrame frame: WebKit.WKFrameInfo, completionHandler: @escaping (Swift.Bool) -> Swift.Void)
+  @objc dynamic public func webView(_ webView: WebKit.WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: Swift.String, defaultText: Swift.String?, initiatedByFrame frame: WebKit.WKFrameInfo, completionHandler: @escaping (Swift.String?) -> Swift.Void)
+  @objc dynamic public func webViewWebContentProcessDidTerminate(_ webView: WebKit.WKWebView)
+}
+extension SurveyView : WebKit.WKScriptMessageHandler {
+  @objc dynamic public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
+}
+public protocol SurveyViewDelegate {
+  func surveyDidComplete(with status: Swift.String, point: Swift.Int, transactionId: Swift.String)
+  func onError(error: Swift.Error)
+  func userDidCancel()
+}
+@objc @_inheritsConvenienceInitializers @IBDesignable open class HorizontalProgressBar : UIKit.UIView {
+  @objc @IBInspectable public var bgColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable public var barColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable public var frameColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable public var frameBold: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable public var pgHeight: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable public var pgWidth: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+extension HorizontalProgressBar {
+  open func animateProgress(duration: CoreGraphics.CGFloat, progressValue: CoreGraphics.CGFloat)
+  open func startAnimation(type: Swift.String, duration: CoreGraphics.CGFloat)
+  open func stopAnimation()
+  open func getProgress() -> CoreGraphics.CGFloat
+}
+@objc @_hasMissingDesignatedInitializers public class SurveyManager : ObjectiveC.NSObject {
+  public class func sharedInstance() -> SurveySdk.SurveyManager
+  public class func setup(apiKey: Swift.String, userID: Swift.String? = nil, parms: [Swift.String : Swift.String] = [:])
+  public func getSurveyList(completion: @escaping ([SurveySdk.Survey], Swift.Error?) -> ())
+  @objc deinit
+  @objc override dynamic public init()
+}

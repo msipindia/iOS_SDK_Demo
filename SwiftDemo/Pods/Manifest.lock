@@ -1,12 +1,16 @@
 PODS:
-  - MarkelyticsSurvey (1.0.0)
+  - SurveysSdk (3.2.0)
 
 DEPENDENCIES:
-  - MarkelyticsSurvey (= 1.0.0)
+  - SurveysSdk (= 3.2.0)
+
+SPEC REPOS:
+  trunk:
+    - SurveysSdk
 
 SPEC CHECKSUMS:
-  MarkelyticsSurvey: 1766998bf68ec246416fd18a942ebc5a6fec6aba
+  SurveysSdk: 1778e9a62ca291f24d4a98fcf767417e8f2bfbc2
 
-PODFILE CHECKSUM: dba03254cdcdb1f56ecb1778a630f6608df4a7fc
+PODFILE CHECKSUM: e56a58e2032e2abc8315f5de7b6bf9c09821d2ce
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.10.1
